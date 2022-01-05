@@ -1,0 +1,13 @@
+<resources>
+    <string name="no_category_label">Sin categoría</string>
+
+    <string name="total_label">Total</string>
+    <string name="average_label">Promedio</string>
+    <string name="analysis_count_label">#</string>
+    <string name="budget_rest_exceeded">Excedido</string>
+    <string name="budget_rest">Por ejecutar</string>
+    <string name="select">Seleccionar</string>
+    <string name="selectAll">Seleccionar todo</string>
+    <string name="clear">Limpiar</string>
+
+</resources>

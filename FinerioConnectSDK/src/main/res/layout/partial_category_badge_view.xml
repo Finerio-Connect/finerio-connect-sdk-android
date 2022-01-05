@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rlCategoryBadgeContainer"
+    android:layout_width="match_parent"
+    android:layout_height="45dp">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivImage"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="16dp"
+        tools:srcCompat="@drawable/iso" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvCategory"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_toEndOf="@id/ivImage"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:textSize="16sp"
+        tools:text="Categoría" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:indeterminate="true"
+        android:visibility="gone"/>
+
+</RelativeLayout>

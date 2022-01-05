@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="FCButtonLine">
+        <attr name="fcIcon" format="reference" />
+        <attr name="fcIconTint" format="reference" />
+        <attr name="fcTitle" format="reference" />
+        <attr name="fcTitleColor" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="FCSwitchButton">
+        <attr name="fcSBStrokeColor" format="reference" />
+        <attr name="fcSBBackgroundColor" format="reference" />
+        <attr name="fcSBBackgroundColorActivated" format="reference" />
+        <attr name="fcSBTitle" format="reference" />
+        <attr name="fcSBHeight" format="integer" />
+        <attr name="fcSBTitleColor" format="reference" />
+        <attr name="fcSBTitleColorActivated" format="reference" />
+        <attr name="fcIsSBActivate" format="boolean" />
+    </declare-styleable>
+</resources>

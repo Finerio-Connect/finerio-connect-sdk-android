@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#FF23328C</color>
+    <color name="textColorPrimary">#454545</color>
+    <color name="colorAccent">#00C3FF</color>
+
+    <color name="colorDarkBlue">#ff0084DD</color>
+    <color name="colorLightGray">#d3d3d3</color>
+    <color name="colorLighterGray">#eeeeef</color>
+    <color name="colorLightBlue">#ffE5F3FD</color>
+    <color name="colorDarkGray">#4B4B4B</color>
+    <color name="colorDark">#000000</color>
+
+    <color name="colorTransactionDuplicated">#ffDCDCDC</color>
+    <color name="colorManualAccountIcon">#0A5D19</color>
+    <color name="colorBudgetRed">#ffF75757</color>
+    <color name="colorBudgetGreen">#ff2ECC71</color>
+    <color name="colorTransactionHeader">#44C6FC</color>
+
+    <color name="colorFilter">#127AC6</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorGray">#ff939598</color>
+
+    <color name="budget_green">#ff2ECC71</color>
+    <color name="budget_yellow">#fffcb100</color>
+    <color name="budget_red">#ffF75757</color>
+    <color name="budget_gray">#ff939598</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#111111</color>
+
+</resources>
