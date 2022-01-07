@@ -102,11 +102,7 @@ FinerioConnectSDK.shared.fonts = Fonts(openSansRegular)
 
 ### And finally configure it
 
-```java
-finerioConnectSDK.configure();
 ```
-
-```kotlin
 finerioConnectSDK.configure();
 ```
 
