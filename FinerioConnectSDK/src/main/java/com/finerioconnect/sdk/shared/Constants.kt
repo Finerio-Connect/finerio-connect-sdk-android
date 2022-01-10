@@ -47,5 +47,6 @@ object Constants {
 
     object Preferences {
         const val UUID = "uuid"
+        const val VALID_API_KEY = "validApiKey"
     }
 }
