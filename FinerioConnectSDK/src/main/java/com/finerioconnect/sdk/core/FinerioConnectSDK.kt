@@ -2,6 +2,7 @@ package com.finerioconnect.sdk.core
 
 import android.content.Context
 import com.finerioconnect.sdk.core.apikey.interfaces.ApiKeyRepository
+import com.finerioconnect.sdk.core.apikey.interfaces.OnApiKeyRepositoryListener
 import com.finerioconnect.sdk.core.apikey.repositories.ApiKeyRepositoryImpl
 import com.finerioconnect.sdk.helpers.MixpanelHelper
 import com.finerioconnect.sdk.helpers.logInfo
@@ -20,6 +21,7 @@ class FinerioConnectSDK private constructor() {
 
     private var configuration: Configuration = Configuration()
     private var mixpanelInitialized: Boolean = false
+    private var apiKeyValidated: Boolean = false
 
     fun init(configuration: Configuration) = apply {
         this.configuration = configuration
@@ -60,7 +62,6 @@ class FinerioConnectSDK private constructor() {
         logInfo("SDK Version: 1.0.0")
 
         configuration.setIsReadySDK(true)
-        validateApiKey()
     }
 
     fun setupMixpanel(context: Context, token: String) {
@@ -79,8 +80,13 @@ class FinerioConnectSDK private constructor() {
         }
     }
 
-    private fun validateApiKey() {
-        val repository: ApiKeyRepository = ApiKeyRepositoryImpl()
-        repository.validateApiKey(shared.apiKey)
+    fun validateApiKey(listener: OnApiKeyRepositoryListener) {
+        if (!apiKeyValidated) {
+            apiKeyValidated = true
+
+            val repository: ApiKeyRepository = ApiKeyRepositoryImpl()
+            repository.setListener(listener)
+            repository.validateApiKey(shared.apiKey)
+        }
     }
 }
