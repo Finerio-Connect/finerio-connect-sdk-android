@@ -21,7 +21,6 @@ class FinerioConnectSDK private constructor() {
 
     private var configuration: Configuration = Configuration()
     private var mixpanelInitialized: Boolean = false
-    private var apiKeyValidated: Boolean = false
 
     fun init(configuration: Configuration) = apply {
         this.configuration = configuration
@@ -81,12 +80,8 @@ class FinerioConnectSDK private constructor() {
     }
 
     fun validateApiKey(listener: OnApiKeyRepositoryListener) {
-        if (!apiKeyValidated) {
-            apiKeyValidated = true
-
-            val repository: ApiKeyRepository = ApiKeyRepositoryImpl()
-            repository.setListener(listener)
-            repository.validateApiKey(shared.apiKey)
-        }
+        val repository: ApiKeyRepository = ApiKeyRepositoryImpl()
+        repository.setListener(listener)
+        repository.validateApiKey(shared.apiKey)
     }
 }
