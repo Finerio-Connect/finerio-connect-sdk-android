@@ -1,6 +1,5 @@
 package com.finerioconnect.sdk.core.apikey.repositories
 
-import android.util.Log
 import com.finerioconnect.sdk.core.apikey.interfaces.ApiKeyRepository
 import com.finerioconnect.sdk.core.apikey.interfaces.OnApiKeyRepositoryListener
 import com.finerioconnect.sdk.core.services.ApiKeyService
@@ -8,7 +7,7 @@ import com.finerioconnect.sdk.models.FCApiKey
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class ApiKeyRepositoryImpl : ApiKeyRepository, OnApiKeyRepositoryListener {
+class ApiKeyRepositoryImpl : ApiKeyRepository {
     private var mListener: OnApiKeyRepositoryListener? = null
 
     override fun validateApiKey(apiKey: String) {
@@ -16,7 +15,7 @@ class ApiKeyRepositoryImpl : ApiKeyRepository, OnApiKeyRepositoryListener {
 
         if (apiKey.isNotEmpty()) {
             val apiKeyModel = FCApiKey(apiKey)
-            tokenService.setListener(this)
+            tokenService.setListener(mListener)
 
             GlobalScope.launch {
                 tokenService.validate(apiKeyModel)
@@ -26,11 +25,7 @@ class ApiKeyRepositoryImpl : ApiKeyRepository, OnApiKeyRepositoryListener {
         }
     }
 
-    override fun successApiKey() {
-        Log.i("SDK Core", "Api key success")
-    }
-
-    override fun failApiKey(message: String) {
-        throw Exception(message)
+    override fun setListener(listener: OnApiKeyRepositoryListener?) {
+        this.mListener = listener
     }
 }
