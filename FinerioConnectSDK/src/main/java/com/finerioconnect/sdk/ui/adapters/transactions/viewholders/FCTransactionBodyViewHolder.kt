@@ -42,7 +42,7 @@ class FCTransactionBodyViewHolder<T>(
             rlTransactionTypeContainer.visibility = View.GONE
         } else {
             rlTransactionTypeContainer.visibility = View.VISIBLE
-            configType(body.category)
+            configType(body.category!!)
         }
         configTypeface()
     }
@@ -57,7 +57,7 @@ class FCTransactionBodyViewHolder<T>(
                 val imgPadding = if(body.image == "debit_manual_account") 6f else 10f
                 setPadding(context.dpToPx(imgPadding).toInt())
             }
-            val colorStateList = if(body.tintImage == null) null else ColorStateList.valueOf(body.tintImage)
+            val colorStateList = if(body.tintImage == null) null else ColorStateList.valueOf(body.tintImage!!)
             ImageViewCompat.setImageTintList(this, colorStateList)
         } else {
             setPadding(context.dpToPx(13f).toInt())
