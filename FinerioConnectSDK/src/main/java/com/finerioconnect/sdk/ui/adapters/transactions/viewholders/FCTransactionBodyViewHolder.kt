@@ -48,20 +48,22 @@ class FCTransactionBodyViewHolder<T>(
     }
 
     private fun configImage(body: FCTransactionBody<T>, defMainImage: String?) = with(mBinding.ivLogo) {
+        val image = body.image.safe()
         if(defMainImage == null){
-            if (body.image.isUrl()) {
-                Glide.with(context).load(body.image).into(this)
+            if (image.isUrl()) {
+                Glide.with(context).load(image).into(this)
+                setPadding(0)
             } else {
-                val image = context.findImageIdentifier(body.image)
-                if(image != 0) setImageResource(image)
-                val imgPadding = if(body.image == "debit_manual_account") 6f else 10f
+                val imageRes = context.findImageIdentifier(image)
+                if(imageRes != 0) setImageResource(imageRes)
+                val imgPadding = if(image.contains("manual_account")) 6f else 10f
                 setPadding(context.dpToPx(imgPadding).toInt())
             }
             val colorStateList = if(body.tintImage == null) null else ColorStateList.valueOf(body.tintImage!!)
             ImageViewCompat.setImageTintList(this, colorStateList)
         } else {
             setPadding(context.dpToPx(13f).toInt())
-            ImageViewUtils.setResource(body.image, this, body.tintImage, defMainImage)
+            ImageViewUtils.setResource(image, this, body.tintImage, defMainImage)
         }
     }
 
