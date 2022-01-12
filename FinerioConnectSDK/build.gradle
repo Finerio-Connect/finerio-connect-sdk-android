@@ -5,8 +5,12 @@ plugins {
     id 'kotlin-kapt'
 }
 
-def vVersionName = "1.0.3"
+def vVersionName = "1.0.2"
 def vVersionCode = 2
+
+android.buildTypes.each { type ->
+    type.buildConfigField 'String', 'SDK_VERSION', '"' + vVersionName + '"'
+}
 
 android {
     compileSdkVersion 31

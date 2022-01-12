@@ -1,6 +1,7 @@
 package com.finerioconnect.sdk.core
 
 import android.content.Context
+import com.finerioconnect.sdk.BuildConfig
 import com.finerioconnect.sdk.core.apikey.interfaces.ApiKeyRepository
 import com.finerioconnect.sdk.core.apikey.interfaces.OnApiKeyRepositoryListener
 import com.finerioconnect.sdk.core.apikey.repositories.ApiKeyRepositoryImpl
@@ -58,7 +59,7 @@ class FinerioConnectSDK private constructor() {
 
     fun configure() {
         logInfo("FinerioConnectSDK configured...")
-        logInfo("SDK Version: 1.0.0")
+        logInfo("SDK Version: ${BuildConfig.SDK_VERSION}")
 
         configuration.setIsReadySDK(true)
     }
