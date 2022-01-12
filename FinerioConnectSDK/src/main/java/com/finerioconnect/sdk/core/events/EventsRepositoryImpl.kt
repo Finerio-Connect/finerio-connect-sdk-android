@@ -23,6 +23,6 @@ class EventsRepositoryImpl : EventsRepository, OnEventsRepositoryListener {
     }
 
     override fun failEvent(message: String) {
-        throw Exception(message)
+        Log.i("Events Service", message)
     }
 }

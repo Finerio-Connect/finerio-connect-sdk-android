@@ -9,5 +9,7 @@
     <string name="select">Seleccionar</string>
     <string name="selectAll">Seleccionar todo</string>
     <string name="clear">Limpiar</string>
+    <string name="contactSupport">Lo sentimos estamos teniendo problemas técnicos, si el problema persiste contacta a soporte técnico.</string>
+    <string name="ok">OK</string>
 
 </resources>
