@@ -28,7 +28,7 @@ Add next configuration to module `build.gradle`:
 
 ```build.gradle
 dependencies {   
-    implementation 'com.github.Finerio-Connect:finerio-connect-sdk-android:1.0.0'   
+    implementation 'com.github.Finerio-Connect:finerio-connect-sdk-android:1.0.2'
 }  
 ```
 
@@ -102,11 +102,7 @@ FinerioConnectSDK.shared.fonts = Fonts(openSansRegular)
 
 ### And finally configure it
 
-```java
-finerioConnectSDK.configure();
 ```
-
-```kotlin
 finerioConnectSDK.configure();
 ```
 
