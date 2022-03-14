@@ -43,6 +43,7 @@ object Constants {
     object Mixpanel {
         const val DEVICE_ID = "device_id"
         const val API_KEY = "api_key"
+        const val ENABLED = false
     }
 
     object Preferences {
