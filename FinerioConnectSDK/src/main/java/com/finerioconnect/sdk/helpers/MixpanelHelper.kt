@@ -1,6 +1,7 @@
 package com.finerioconnect.sdk.helpers
 
 import android.content.Context
+import com.finerioconnect.sdk.shared.Constants
 import com.mixpanel.android.mpmetrics.MixpanelAPI
 import org.json.JSONObject
 
@@ -16,16 +17,22 @@ class MixpanelHelper {
     }
 
     fun sendSuperProperties(superProperties: Map<String, Any>) {
-        val jsonObject = JSONObject(superProperties)
-        mMixpanelAPI.registerSuperProperties(jsonObject)
+        if (Constants.Mixpanel.ENABLED) {
+            val jsonObject = JSONObject(superProperties)
+            mMixpanelAPI.registerSuperProperties(jsonObject)
+        }
     }
 
     fun sendEvent(eventName: String, properties: Map<String, Any>) {
-        val jsonObject = JSONObject(properties)
-        mMixpanelAPI.track(eventName, jsonObject)
+        if (Constants.Mixpanel.ENABLED) {
+            val jsonObject = JSONObject(properties)
+            mMixpanelAPI.track(eventName, jsonObject)
+        }
     }
 
     fun sendEvent(eventName: String) {
-        mMixpanelAPI.track(eventName)
+        if (Constants.Mixpanel.ENABLED) {
+            mMixpanelAPI.track(eventName)
+        }
     }
 }

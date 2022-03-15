@@ -65,18 +65,20 @@ class FinerioConnectSDK private constructor() {
     }
 
     fun setupMixpanel(context: Context, token: String) {
-        if (!mixpanelInitialized) {
-            mixpanelInitialized = true
-            if (configuration.apiKey.isEmpty()) {
-                throw Exception("You need to set your client token to continue, using FinerioConnectSDK class. Check README file")
+        if (Constants.Mixpanel.ENABLED) {
+            if (!mixpanelInitialized) {
+                mixpanelInitialized = true
+                if (configuration.apiKey.isEmpty()) {
+                    throw Exception("You need to set your client token to continue, using FinerioConnectSDK class. Check README file")
+                }
+
+                val superProperties: MutableMap<String, Any> = LinkedHashMap()
+                superProperties[Constants.Mixpanel.DEVICE_ID] = DeviceUtils.getUUID(context)
+                superProperties[Constants.Mixpanel.API_KEY] = configuration.apiKey
+
+                MixpanelHelper.instance.init(context, token)
+                MixpanelHelper.instance.sendSuperProperties(superProperties)
             }
-
-            val superProperties: MutableMap<String, Any> = LinkedHashMap()
-            superProperties[Constants.Mixpanel.DEVICE_ID] = DeviceUtils.getUUID(context)
-            superProperties[Constants.Mixpanel.API_KEY] = configuration.apiKey
-
-            MixpanelHelper.instance.init(context, token)
-            MixpanelHelper.instance.sendSuperProperties(superProperties)
         }
     }
 
